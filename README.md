@@ -1,6 +1,6 @@
 # DiemTiemChung
 BTL Ky Thuat Phan Mem Ung Dung
-java 18
-tomcat 9.0
-jstl-1.2
+java 18 <br>
+tomcat 9.0 <br>
+jstl-1.2 <br>
 bootstrap-3.4.1
