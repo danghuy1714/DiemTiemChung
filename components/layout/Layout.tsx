@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Main from "./Main";
@@ -9,15 +9,21 @@ const StyledLayout = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  .main-container {
+    height: 100%;
+    overflow-y: auto;
+    /* margin-top: 60px; */
+  }
 `;
 const Layout = ({ children }: { children: ReactNode }) => {
+  const [isShowSidebar, setIsShowSidebar] = useState(true);
   return (
     <StyledLayout>
       <>
-        <Sidebar />
+        <Sidebar isShowSidebar={isShowSidebar} />
         <Main>
           <>
-            <Header />
+            <Header setIsShowSidebar={setIsShowSidebar} />
             <div className="main-container">{children}</div>
           </>
         </Main>

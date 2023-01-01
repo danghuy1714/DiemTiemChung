@@ -12,7 +12,7 @@ const StyledSidebarItem = styled.div<ISidebarProps>`
   padding: 20px;
   color: ${(props) => (props.isActive ? "#fff" : "#858585")};
   background: ${(props) => (props.isActive ? "#266663" : "#fff")};
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   .icon {
     margin-right: 12px;
