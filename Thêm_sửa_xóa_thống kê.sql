@@ -15,7 +15,7 @@ FROM Benhnhan,Phieutiem
 WHERE Phieutiem.ID_benh_nhan = Benhnhan.ID_benh_nhan;
 
 --THỐNG KÊ SỐ MŨI CÒN THIẾU
-SELECT Benhnhan.hoten, Thuoctiem.somuicantiem - Phieutiem.somuidatiem
+SELECT Benhnhan.hoten, Thuoctiem.somuicantiem - Phieutiem.somuidatiem - 1
 FROM Benhnhan,Thuoctiem,Phieutiem
 WHERE Benhnhan.ID_benh_nhan = Phieutiem.ID_benh_nhan AND Thuoctiem.masothuoc = Phieutiem.masothuoc;
 
