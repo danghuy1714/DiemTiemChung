@@ -10,15 +10,16 @@
 -- tương tự thêm, sửa, xóa với các bàng khác
 
 --THỐNG KÊ SỐ MŨI TIÊM CỦA CÁC BỆNH NHÂN
-SELECT Benhnhan.hoten,Phieutiem.somuidatiem
-FROM Benhnhan,Phieutiem
-WHERE Phieutiem.ID_benh_nhan = Benhnhan.ID_benh_nhan;
+SELECT Benhnhan.ID_benh_nhan,Benhnhan.hoten,Thuoctiem.tenthuoc,Phieutiem.somuidatiem + 1
+FROM Benhnhan,Phieutiem,Thuoctiem
+WHERE Phieutiem.ID_benh_nhan = Benhnhan.ID_benh_nhan AND Thuoctiem.masothuoc = Phieutiem.masothuoc;
 
 --THỐNG KÊ SỐ MŨI CÒN THIẾU
-SELECT Benhnhan.hoten, Thuoctiem.somuicantiem - Phieutiem.somuidatiem - 1
+SELECT Benhnhan.ID_benh_nhan,Benhnhan.hoten,Thuoctiem.tenthuoc, Thuoctiem.somuicantiem - Phieutiem.somuidatiem - 1
 FROM Benhnhan,Thuoctiem,Phieutiem
-WHERE Benhnhan.ID_benh_nhan = Phieutiem.ID_benh_nhan AND Thuoctiem.masothuoc = Phieutiem.masothuoc;
+WHERE Benhnhan.ID_benh_nhan = Phieutiem.ID_benh_nhan AND Thuoctiem.masothuoc = Phieutiem.masothuoc AND Thuoctiem.masothuoc = Phieutiem.masothuoc;
 
 --THỐNG KÊ NGÀY TIÊM MŨI TIẾP
-SELECT DATEADD(DAY,Thuoctiem.songaytiemmuitiep,Phieutiem.ngaytiem)
-FROM Thuoctiem,Phieutiem ;
+SELECT Benhnhan.ID_benh_nhan,Benhnhan.hoten,Thuoctiem.tenthuoc,DATEADD(DAY,Thuoctiem.songaytiemmuitiep,Phieutiem.ngaytiem)
+FROM Benhnhan,Thuoctiem,Phieutiem
+WHERE Phieutiem.ID_benh_nhan = Benhnhan.ID_benh_nhan AND Thuoctiem.masothuoc = Phieutiem.masothuoc;
